@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:twitter_trends/apiAccess.dart';
 import 'package:twitter_trends/trendView/global.dart';
 
@@ -102,11 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
               decoration: BoxDecoration(color: Theme.of(context).primaryColor),
             ),
             ListTile(
-              title: Text("Elem1"),
+              title: Text("#IoT"),
             ),
             Divider(),
             ListTile(
-              title: Text("Elem2"),
+              title: Text("Machine learning"),
             ),
           ],
         ),
@@ -116,7 +117,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget buildTrendsView() {
     if (trends.isEmpty) {
-      return Text("Loading");
+      return Center(
+        child: SpinKitCircle(
+          color: Colors.blue,
+          size: 50.0,
+        ),
+      );
     }
     return Container(
       child: Center(
@@ -127,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Global(
                 trends: trends,
               ),
-              height: MediaQuery.of(context).size.height-100,
+              height: MediaQuery.of(context).size.height - 100,
             ),
           ),
           onRefresh: _loadTrends,

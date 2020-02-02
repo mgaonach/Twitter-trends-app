@@ -21,6 +21,8 @@ dependencies:
     sdk: flutter
   twitter:
   charts_flutter:
+  flutter_spinkit: "^2.1.0"
+  intl:
 
 
 dev_dependencies:
